@@ -1,3 +1,11 @@
+<script setup lang="ts" >
+// 通过 useSeoMeta()函数来设置页面的 SEO 信息（无需导入）
+useSeoMeta({
+  title:"首页",
+  description:"首页描述",
+  keywords:"关键字"
+})
+</script>
 <template>
   <!-- <div>
     <NuxtWelcome />
