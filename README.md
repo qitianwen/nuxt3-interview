@@ -1,5 +1,8 @@
 # Nuxt 3 Minimal Starter
 
+下载项目： https://github.com/nuxt/starter/tree/v3
+Nuxt 地址： https://nuxt.com/docs/getting-started/routing
+
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
