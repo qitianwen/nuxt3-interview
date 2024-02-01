@@ -1,9 +1,20 @@
 <script setup lang="ts" >
 // 通过 useSeoMeta()函数来设置页面的 SEO 信息（无需导入）
+// 标题模板基础用法：
+// useSeoMeta({
+//   title:"首页",
+//   description:"首页描述",
+//   keywords:"关键字"
+// })
+// 可以使用该titleTemplate选项提供动态模板来自定义站点标题
 useSeoMeta({
-  title:"首页",
-  description:"首页描述",
-  keywords:"关键字"
+  // 标题模板函数，接收一个参数 title ，返回一个字符串
+  titleTemplate:(title) => {
+    return title?`${title}_黑马面经`:'黑马面筋-找工作神器|笔试题库|面试经验'
+  },
+  descriptioin:`求职之前，先上黑马面经，就业找工作一站解决。全面提升求职竞争力，找到好工作，拿到好offer。`,
+  keywords:"面试，笔试",
+  author: '黑马程序员'
 })
 </script>
 <template>

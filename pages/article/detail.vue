@@ -1,7 +1,7 @@
  <script setup lang='ts'>
 //  设置页面 seo标题
 useSeoMeta({
-  title:"用户详情页"
+  title:"字节跳动面试记录"
 
 })
  </script>
