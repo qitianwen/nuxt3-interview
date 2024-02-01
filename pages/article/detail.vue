@@ -7,13 +7,16 @@ useSeoMeta({
  </script>
 
  <template>
-     <div>
+     <div class="container">
       用户详情页
+      <h2>我是detail页面</h2>
     </div>
  </template>
 
 
 
  <style scoped>
-
+.container{
+  size: 16px;
+}
  </style>
