@@ -2,8 +2,12 @@
 
 下载项目： https://github.com/nuxt/starter/tree/v3
 Nuxt 地址： https://nuxt.com/docs/getting-started/routing
+面筋：
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+- [在线体验](https://nuxt-interview.vercel.app/register)
+- [参考代码](https://gitee.com/Megasu/nuxt-interview)
+- [接口文档地址](https://www.apifox.cn/apidoc/project-934563/api-20384515)
+  Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
 
