@@ -17,12 +17,18 @@ const form = reactive({
 const onSubmit = async (value:typeof form) => {
   //
   console.log('value  ----->  ', value);
+  //  axios 请求 -utils 目录的方法 Nuxt帮我们自动导入了
  await request({
     method:"post",
     url:'/user/register',
     data:form
   })
-  alert("注册成功！")
+  // alert("注册成功！")
+  //提示 全局方法Nuxt帮我们自动导入 无需引入  
+  showSuccessToast("注册成功！")
+  // 跳转到登录页面，相当于 router.push('/login') 无记录跳转router.replace('/login')
+  // navigateTo('/login')
+  navigateTo('/login',{replace:true})
 }
 </script>
 
