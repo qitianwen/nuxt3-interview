@@ -1,5 +1,5 @@
  <script setup lang='ts'>
-// const layout = "custom"
+// const layout = 'custom'
 
  </script>
 
@@ -7,9 +7,7 @@
    <div>
         <!-- 如果您在页面中使用<NuxtLayout>，请确保它不是根元素（或禁用布局/页面转换）。 -->
        <NuxtLayout name="tabbar">
-      <h1>
-        收藏
-      </h1>
+      <h1>我的</h1>
     </NuxtLayout>
     </div>
  </template>

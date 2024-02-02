@@ -26,5 +26,11 @@ useSeoMeta({
   <!-- <NuxtLink to="/article">详情页</NuxtLink><br>
   <NuxtLink to="/article/detail">用户详情页</NuxtLink> -->
   <!-- NuxtPage 相当于 RoutterView 组件 ， 作为路由出口  默认首页为 pages中的index.vue -->
-  <NuxtPage/>
+    <NuxtPage />
+  <!-- <NuxtPage/> -->
 </template>
+<style>
+:root{
+  --van-primary-color:#ff7d00!important;
+}
+</style>

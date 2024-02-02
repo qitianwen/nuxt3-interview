@@ -13,6 +13,8 @@ vant4 -vue3 : https://vant-ui.github.io/vant/#/zh-CN
 pnpm i @vant/nuxt
 
 TS 识别不了，报警告，可以 使用 ctrl + p > 点击 Volar:Restart Vue server 重启 Volar
+
+布局 layout： https://nuxt.com/docs/guide/directory-structure/layouts Nuxt 布局
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
