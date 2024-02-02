@@ -17,6 +17,8 @@ const onSubmit = async () => {
   console.log('res登录成功  ----->  ', res);
   // X 保存token 信息 - 不能使用 localStorage 因为 Nuxt 没有 localStorage
   // localStorage.setItem('token_nuxt',res.data.token)
+  // 保存 token 信息 -  用 cookie , 因为 Nuxt 服务端有 cookie
+  setToken(res.data.token)
   showSuccessToast({message:"登录成功",icon:'none'})
   navigateTo('/',{replace:false})
 }
