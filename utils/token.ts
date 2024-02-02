@@ -19,6 +19,9 @@ export const setToken = (newToken: string) => {
 }
 
 // 删除
+/**
+ * 删除token
+ */
 export const delToken = () => {
   useCookie(KEY).value = ""
 }
