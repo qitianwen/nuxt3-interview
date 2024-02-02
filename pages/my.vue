@@ -4,7 +4,7 @@
 
  <template>
      <div>
-      用户页
+      我的
     </div>
  </template>
 
