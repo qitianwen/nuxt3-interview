@@ -1,5 +1,4 @@
  <script setup lang='ts'>
-
  </script>
 
  <template>
@@ -7,7 +6,6 @@
       用户列表页
     </div>
  </template>
-
 
 
  <style scoped>

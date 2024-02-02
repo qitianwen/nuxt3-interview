@@ -12,7 +12,7 @@ useSeoMeta({
   titleTemplate:(title) => {
     return title?`${title}_黑马面经`:'黑马面筋-找工作神器|笔试题库|面试经验'
   },
-  descriptioin:`求职之前，先上黑马面经，就业找工作一站解决。全面提升求职竞争力，找到好工作，拿到好offer。`,
+  description:`求职之前，先上黑马面经，就业找工作一站解决。全面提升求职竞争力，找到好工作，拿到好offer。`,
   keywords:"面试，笔试",
   author: '黑马程序员'
 })
