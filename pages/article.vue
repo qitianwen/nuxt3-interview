@@ -1,6 +1,7 @@
  <script setup lang='ts'>
+ import type {ArticleItem} from 'types/article'
 // 面经列表
-const list = ref<any[]>([])
+const list = ref<ArticleItem[]>([])
 // 获取面经列表
 const getList = async() => {
   // 这里 axios 不会等请求结束，服务器渲染完成后返回前端 渲染前端
@@ -37,23 +38,117 @@ getList()
   <div>
         <!-- 如果您在页面中使用<NuxtLayout>，请确保它不是根元素（或禁用布局/页面转换）。 -->
    <NuxtLayout name="tabbar">
-     <div>
-     欢迎  Nuxt
-     <van-button type="primary">主要按钮</van-button>
-     <van-button type="success">成功按钮</van-button>
-     <h1>首页</h1>
-     <div v-for="item in list" :key="item.id">
-      {{item.stem}}
-     </div>
-    </div>
+    <!-- <div class="test active">
+      <h1 class="">测试</h1>
+    </div> -->
+    <div class="article-page">
+    <nav class="my-nav van-hairline--bottom">
+        <a href="javascript:;">推荐</a>
+        <a href="javascript:;">最新</a>
+        <div class="logo"><img src="@/assets/logo.png" alt="" /></div>
+    </nav>
+    <ArticleItemCom v-for="item in list" :key="item.id" :item="item" />
+  </div>
   </NuxtLayout>
 </div>
  </template>
 
 
 
- <style scoped>
-h1{
-  size: 24px;
+<style lang="less" scoped>
+// .test{
+//   &.active{
+//     padding-top: 100px;
+//     color:pink;
+//   }
+// }
+.article-page {
+  margin-bottom: 50px;
+  margin-top: 44px;
+  .my-nav {
+    height: 44px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    > a {
+      color: #999;
+      font-size: 14px;
+      line-height: 44px;
+      margin-left: 20px;
+      position: relative;
+      transition: all 0.3s;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: #222;
+        transition: all 0.3s;
+      }
+      &.active {
+        color: #222;
+        &::after {
+          width: 14px;
+        }
+      }
+    }
+    .logo {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      > img {
+        width: 64px;
+        height: 28px;
+        display: block;
+        margin-right: 10px;
+      }
+    }
+  }
 }
- </style>
+.article-item {
+  .head {
+    display: flex;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .con {
+      flex: 1;
+      overflow: hidden;
+      padding-left: 10px;
+      p {
+        margin: 0;
+        line-height: 1.5;
+        &.title {
+          width: 280px;
+        }
+        &.other {
+          font-size: 10px;
+          color: #999;
+        }
+      }
+    }
+  }
+  .body {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+  .foot {
+    font-size: 12px;
+    color: #999;
+    margin-top: 10px;
+  }
+}
+</style>
