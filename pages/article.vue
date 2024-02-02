@@ -2,6 +2,25 @@
  import type {ArticleItem} from 'types/article'
 // 面经列表
 const list = ref<ArticleItem[]>([])
+
+// 分页查询参数
+/**
+ * 分页查询参数
+ * Query 参数
+*@param current number 当前页 可选
+*@param pageSizenumber  每页数量 可选
+*@param stem string  筛选字段-题干 可选
+*@param keyWord  string 筛选字段-关键字可选
+*@param sorterstring 可选排序字段，以字段名加下划线组合，不能有特殊字符和不存在的字段。 推荐传 weight_desc 最新：可以不用传
+*/
+const pageParams = reactive({
+  // 这里39页 35开始 快速测试
+  current:35,
+  pageSize:10,
+  sorter:'weight_desc'
+})
+const loading = ref(false);
+    const finished = ref(false);
 // 获取面经列表
 const getList = async() => {
   // 这里 axios 不会等请求结束，服务器渲染完成后返回前端 渲染前端
@@ -26,10 +45,28 @@ const getList = async() => {
 //  })
 // //  console.log('result 返回 ----->  ', result.data.value.data.rows);
 //  list.value.push(...result.data.value.data.rows)
-// 使用 封装的useRequest 
- const res = await useRequest('/interview/query',{params:{pageSize:6}})
-//  console.log('123  ----->  ', res);
+// 使用  基于 useFetch 二次封装的 useRequest 更加简洁
+ const res = await useRequest('/interview/query',{
+  params:pageParams,
+  // 使用useFetch 会 参数改变会默认发送请求 需要关闭 (否则这里会重复发送请求 )
+  watch:false
+})
+
+//  console.log('res 面经列表 ----->  ', res.data.rows);
+// 数组追加
  list.value.push(...res.rows)
+//  分页数量累加
+pageParams.current++
+
+// 加载状态结束
+loading.value = false
+
+// 如果数据已经全局加载完毕需要显示加载完毕
+if(res.current >= res.pageTotal){
+  finished.value = true
+}
+//  console.log('123  ----->  ', res);
+
 }
 getList()
  </script>
@@ -47,7 +84,15 @@ getList()
         <a href="javascript:;">最新</a>
         <div class="logo"><img src="@/assets/logo.png" alt="" /></div>
     </nav>
-    <ArticleItemCom v-for="item in list" :key="item.id" :item="item" />
+    <!-- 分页加载 -->
+    <van-list
+  v-model:loading="loading"
+  :finished="finished"
+  finished-text="没有更多了"
+  @load="getList"
+>
+<ArticleItemCom v-for="item in list" :key="item.id" :item="item" />
+</van-list>
   </div>
   </NuxtLayout>
 </div>
