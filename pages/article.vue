@@ -1,17 +1,31 @@
  <script setup lang='ts'>
 // 面经列表
 const list = ref<any[]>([])
+// 获取面经列表
 const getList = async() => {
+  // 这里 axios 不会等请求结束，服务器渲染完成后返回前端 渲染前端
   // axios 问题 ， 不会等服务端渲染完成，直接返回空页面， 对 SEO 不友好
-const res = await request({
-    url: '/interview/query',
-    method: 'get',
-    headers:{
-      Authorization:`Bearer ${getToken()}`
-    }
-  })
-  // console.log('res 面经列表 ----->  ', res.data.rows);
-  list.value.push(...res.data.rows)
+// const res = await request({
+//     url: '/interview/query',
+//     method: 'get',
+//     headers:{
+//       Authorization:`Bearer ${getToken()}`
+//     }
+//   })
+//   // console.log('res 面经列表 ----->  ', res.data.rows);
+//   list.value.push(...res.data.rows)
+// 通过 useFetch 获取数据 ，会等服务器端渲染完成后 ，返回页面给前端  ， 并且前端不会再发送多余的请求
+const result = await useFetch<any>('/interview/query',{
+  baseURL:"http://interview-api-t.itheima.net/h5",
+  method:'get',
+  headers:{
+    Authorization:`Bearer ${getToken()}`
+  }
+  // ,get: query:{xxx}   params:{xxx}    post: body:{xxx}
+ })
+//  console.log('result 返回 ----->  ', result.data.value.data.rows);
+ list.value.push(...result.data.value.data.rows)
+ console.log('123  ----->  ', 123);
 }
 getList()
  </script>
