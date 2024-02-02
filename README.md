@@ -17,6 +17,15 @@ TS 识别不了，报警告，可以 使用 ctrl + p > 点击 Volar:Restart Vue 
 布局 layout： https://nuxt.com/docs/guide/directory-structure/layouts Nuxt 布局
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
+## 注册页
+
+使用组件，在 Nuxt3 中无需导入。
+
+- van-nav-bar
+- van-form
+- van-field
+- van-button
+
 ## Setup
 
 Make sure to install the dependencies:

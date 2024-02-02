@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@vant/nuxt": "^1.0.4",
+    "axios": "^1.6.7",
     "postcss-px-to-viewport": "^1.1.1"
   }
 }
