@@ -1,8 +1,19 @@
  <script setup lang='ts'>
-// const layout = "custom"
-// definePageMeta({
-//   layout: false,
-// })
+// 面经列表
+const list = ref<any[]>([])
+const getList = async() => {
+  // axios 问题 ， 不会等服务端渲染完成，直接返回空页面， 对 SEO 不友好
+const res = await request({
+    url: '/interview/query',
+    method: 'get',
+    headers:{
+      Authorization:`Bearer ${getToken()}`
+    }
+  })
+  // console.log('res 面经列表 ----->  ', res.data.rows);
+  list.value.push(...res.data.rows)
+}
+getList()
  </script>
 
  <template>
@@ -14,6 +25,9 @@
      <van-button type="primary">主要按钮</van-button>
      <van-button type="success">成功按钮</van-button>
      <h1>首页</h1>
+     <div v-for="item in list" :key="item.id">
+      {{item.stem}}
+     </div>
     </div>
   </NuxtLayout>
 </div>
