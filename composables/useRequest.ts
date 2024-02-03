@@ -6,13 +6,14 @@
  */
 // useFetch 类型 声明
 import type { UseFetchOptions } from "nuxt/app"
-export const useRequest = async (
+// 添加类型  -- 泛型 传入啥 就是 啥类型
+export const useRequest = async <T = any>(
   url: string,
   options?: UseFetchOptions<any>
 ) => {
   // data 是请求返回的数据（ref类型）
   // error 是错误对象（也是ref类型）
-  const { data, error } = await useFetch(url, {
+  const { data, error } = await useFetch<any>(url, {
     baseURL: "http://interview-api-t.itheima.net/h5",
     headers: {
       Authorization: `Bearer ${getToken()}`
@@ -24,6 +25,7 @@ export const useRequest = async (
   if (error.value) {
     return Promise.reject(error.value)
   } else {
-    return data.value.data
+    // as 断言  ， 告诉ts data.value.data是 T 类型
+    return data.value.data as T
   }
 }

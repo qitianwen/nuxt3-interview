@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type {ArticleDetail} from '@/types/article'
 // 获取页码参数  - 动态路由参数   
 const {params} = useRoute()
 
@@ -10,8 +11,13 @@ const {params} = useRoute()
 // getDetail()
 // 根据页面的参数获取面经详情
 // Nuxt useFetch 的await 可以直接书写 有处理过 
-const article = await useRequest('/interview/show',{params})
-console.log('article 面经详情 ----->  ', article);
+// 添加传入 泛型 ArticleDetail 有代码提示
+const article = await useRequest<ArticleDetail>('/interview/show',{params})
+// console.log('article 面经详情 ----->  ', article);
+// SEO 优化  - 详情页标题
+useSeoMeta({
+  title:`黑马面经 - ${article.stem}`
+})
 </script>
 
 <template>
