@@ -4,6 +4,8 @@
 Nuxt 地址： https://nuxt.com/docs/getting-started/routing
 vant4 -vue3 : https://vant-ui.github.io/vant/#/zh-CN
 面筋：
+接口：https://apifox.com/apidoc/project-934563/api-20384521
+md 文档：https://megasu.gitee.io/front-end-solutions/solutions/nuxt.html#%E9%9D%99%E6%80%81%E7%BB%93%E6%9E%84-2
 
 - [在线体验](https://nuxt-interview.vercel.app/register)
 - [参考代码](https://gitee.com/Megasu/nuxt-interview)

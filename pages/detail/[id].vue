@@ -1,5 +1,17 @@
 <script setup lang="ts">
 // 获取页码参数
+const {params} = useRoute()
+
+// 根据页面的参数获取面经详情
+// const getDetail = async () => {
+//   const res = await useRequest('/interview/show',{params})
+//   console.log('res  面经详情----->  ', res);
+// }
+// getDetail()
+// 根据页面的参数获取面经详情
+// Nuxt useFetch 的await 可以直接书写 有处理过 
+const article = await useRequest('/interview/show',{params})
+console.log('article 面经详情 ----->  ', article);
 </script>
 
 <template>
