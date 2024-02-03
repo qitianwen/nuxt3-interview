@@ -1,5 +1,6 @@
 # Nuxt 3 Minimal Starter
 
+剪切板：ctrl shift v
 下载项目： https://github.com/nuxt/starter/tree/v3
 Nuxt 地址： https://nuxt.com/docs/getting-started/routing
 vant4 -vue3 : https://vant-ui.github.io/vant/#/zh-CN

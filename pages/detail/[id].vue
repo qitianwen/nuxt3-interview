@@ -1,10 +1,10 @@
 <script setup lang="ts">
-// 获取页码参数
+// 获取页码参数  - 动态路由参数   
 const {params} = useRoute()
 
 // 根据页面的参数获取面经详情
 // const getDetail = async () => {
-//   const res = await useRequest('/interview/show',{params})
+//   const res = await useRequest('/interview/show',{params：{id:params.id}})
 //   console.log('res  面经详情----->  ', res);
 // }
 // getDetail()
