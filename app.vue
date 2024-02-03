@@ -37,6 +37,7 @@ useSeoMeta({
     <!-- 建议使用 ： max 设置缓存页面数量  为10个页面  -->
     <NuxtPage :keepalive="{max:10}" />
     <!--   <NuxtPage :keepalive="{include:['/article']}" /> -->
+    <!-- <NuxtPage :keepalive="{include:['/article','/collect','like','user']}"></NuxtPage> -->
     <!-- keepalive include exclude有bug : https://github.com/nuxt/nuxt/issues/15214 -->
   <!-- <NuxtPage/> -->
 </template>

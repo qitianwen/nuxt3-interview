@@ -14,7 +14,9 @@ export const useRequest = async <T = any>(
   // data 是请求返回的数据（ref类型）
   // error 是错误对象（也是ref类型）
   const { data, error } = await useFetch<any>(url, {
-    baseURL: "http://interview-api-t.itheima.net/h5",
+    // baseURL: "http://interview-api-t.itheima.net/h5",
+    // Nuxt 发布 需要 https协议
+    baseURL: "https://interview-api-t.itheima.net/h5",
     headers: {
       Authorization: `Bearer ${getToken()}`
     },

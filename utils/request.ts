@@ -3,7 +3,9 @@ import axios from "axios"
 
 // 创建一个新的axios实例
 const request = axios.create({
-  baseURL: "http://interview-api-t.itheima.net/h5",
+  // baseURL: "http://interview-api-t.itheima.net/h5",
+  // Nuxt 上线发布 需要https 协议
+  baseURL: "https://interview-api-t.itheima.net/h5",
   timeout: 5000
 })
 
