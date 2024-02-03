@@ -23,25 +23,26 @@ console.log('article 面经详情 ----->  ', article);
       title="面经详情"
     />
     <header class="header">
-      <h1>大标题</h1>
+      <h1>{{article.stem}}</h1>
       <p>
-        2050-04-06 | 300 浏览量 | 222 点赞数
+        {{article.createdAt}} | {{article.views}} 浏览量 | {{article.likeCount}} 点赞数
       </p>
       <p>
         <!-- 头像 -->
-        <img src="" alt="" />
-        <span>作者</span>
+        <img :src="article.avatar" alt="" />
+        <span>{{article.creator}}</span>
       </p>
     </header>
-    <main class="body">
+    <main class="body" v-html="article.content"></main>
+    <!-- <main>      
       <p>我是内容</p>
       <p>我是内容</p>
       <p>我是内容</p>
       <p>我是内容</p>
-    </main>
+    </main> -->
     <div class="opt">
-      <van-icon class="active" name="like-o"/>
-      <van-icon name="star-o"/>
+      <van-icon :class="{active:article.likeFlag}"  name="like-o"/>
+      <van-icon :class="{active:article.collectFlag}" name="star-o"/>
     </div>
   </div>
 </template>
