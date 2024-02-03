@@ -21,6 +21,7 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 pages/detail.vue => pages/detail/[id].vue
 
 其中 [id].vue 表示动态路由
+获取页码参数 [id].vue useRoute.params.id
 
 ## 注册页
 
