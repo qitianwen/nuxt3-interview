@@ -1,5 +1,6 @@
 # Nuxt 3 Minimal Starter
 
+Nuxt 中 keepalive 的 bug : https://github.com/nuxt/nuxt/issues/15214  
 useSeoMeta 设置 title 值 可以优化 seo 搜索
 剪切板：ctrl shift v
 下载项目： https://github.com/nuxt/starter/tree/v3

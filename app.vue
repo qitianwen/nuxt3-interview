@@ -18,6 +18,9 @@ useSeoMeta({
 })
 </script>
 <template>
+  <!-- 
+    页面缓存：没有做页面缓存的话，切换页面时会重新发送请求，用户体验不佳，可通过 keepalive 优化体验。
+   -->
   <!-- <div>
     <NuxtWelcome />
   </div> -->
@@ -26,7 +29,15 @@ useSeoMeta({
   <!-- <NuxtLink to="/article">详情页</NuxtLink><br>
   <NuxtLink to="/article/detail">用户详情页</NuxtLink> -->
   <!-- NuxtPage 相当于 RoutterView 组件 ， 作为路由出口  默认首页为 pages中的index.vue -->
-    <NuxtPage />
+    <!-- <NuxtPage /> -->
+    <!-- https://nuxt.com/docs/api/components/nuxt-page#props -->
+    <!--NuxtPage keepalive  NuxtPage  可以 缓存所有的页面  可以使用include  exclude设置 缓存的页面 推荐使用（max:10 最多缓存10个页面，多余的会自动消除）-->
+    <!-- NuxtPage keepalive -->
+    <!-- <NuxtPage keepalive></NuxtPage> -->
+    <!-- 建议使用 ： max 设置缓存页面数量  为10个页面  -->
+    <NuxtPage :keepalive="{max:10}" />
+    <!--   <NuxtPage :keepalive="{include:['/article']}" /> -->
+    <!-- keepalive include exclude有bug : https://github.com/nuxt/nuxt/issues/15214 -->
   <!-- <NuxtPage/> -->
 </template>
 <style>
