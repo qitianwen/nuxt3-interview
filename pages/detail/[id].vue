@@ -4,7 +4,7 @@
 
  <template>
      <div>
-      详情页
+      我是detail/xxx  :  {{ $route.params }}
     </div>
  </template>
 
